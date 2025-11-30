@@ -1,23 +1,23 @@
 .heroSection {
   text-align: center;
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+  background: linear-gradient(135deg, #cce7ff, #99ccff); /* light blue gradient */
 }
 
 .heroTitle {
   font-size: 3rem;
-  color: #00796b;
+  color: #0059b3; /* dark blue */
   margin-bottom: 1rem;
 }
 
 .heroSubtitle {
   font-size: 1.3rem;
-  color: #004d40;
+  color: #003d80; /* darker blue */
   margin-bottom: 2.5rem;
 }
 
 .ctaButton {
-  background-color: #00796b;
+  background-color: #0059b3; /* blue */
   color: white !important;
   padding: 1rem 2.5rem;
   border-radius: 8px;
@@ -28,7 +28,7 @@
 }
 
 .ctaButton:hover {
-  background-color: #004d40;
+  background-color: #003d80; /* darker blue on hover */
 }
 
 .features {
@@ -52,7 +52,7 @@
 }
 
 .card h3 {
-  color: #00796b;
+  color: #0059b3; /* card title blue */
   margin-bottom: 1rem;
 }
 

@@ -14,7 +14,7 @@ export default function Home() {
         <p className={styles.heroSubtitle}>
           Your complete guide to ROS 2, Gazebo, NVIDIA Isaac, Unity, and humanoid robotics.
         </p>
-        <Link className={styles.ctaButton} to="/">
+        <Link className={styles.ctaButton} to="/docs">
           Start Reading
         </Link>
 
