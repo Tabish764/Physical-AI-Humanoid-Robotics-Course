@@ -167,7 +167,7 @@ export async function postChatSelected(
     const timeoutId = setTimeout(() => controller.abort(), API_TIMEOUT_MS);
 
     try {
-      const response = await fetch(`${getBackendUrl()}/api/chat-selected`, {
+      const response = await fetch(`https://physical-ai-humanoid-robotics-course-2.onrender.com/api/chat-selected`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
