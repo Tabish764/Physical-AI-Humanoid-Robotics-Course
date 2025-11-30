@@ -10,7 +10,7 @@ import type {WrapperProps} from '@docusaurus/types';
  * Injects the UrduButton at the top of each documentation page.
  * The button appears above the main content area.
  */
-export default function ContentWrapper(props: WrapperProps<typeof ContentType>): JSX.Element {
+export default function ContentWrapper(props: WrapperProps<typeof ContentType>) {
   return (
     <>
       <div style={{display: 'flex', justifyContent: 'flex-end', marginBottom: '1rem'}}>

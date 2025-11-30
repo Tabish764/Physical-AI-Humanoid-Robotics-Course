@@ -35,6 +35,7 @@ app = FastAPI(
 # --- CORS Middleware ---
 origins = [
     FRONTEND_URL if FRONTEND_URL else "http://localhost:3000",
+    "https://physical-ai-humanoid-robotics-cours-rho.vercel.app",
     "http://localhost:3000",
     "http://localhost:3001",  # Added for dev server on port 3001
     "http://127.0.0.1:3000",
