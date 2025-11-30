@@ -18,3 +18,36 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+dist/
+*.egg-info/
+*.log
+.env*
+
+# React/TypeScript/Frontend
+src/**/*.module.css.d.ts
+coverage/
+.eslintcache
+.jest-cache
+*.tsbuildinfo
+
+# IDE & Editor
+.vscode/settings.json
+.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.nyc_output/
+junit.xml
+test-results/
+
+# OS
+Thumbs.db

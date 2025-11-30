@@ -1,0 +1,68 @@
+openapi: 3.0.0
+info:
+  title: RAG Chatbot Backend API
+  version: 1.0.0
+paths:
+  /api/chat:
+    post:
+      summary: Ask a question about book content
+      operationId: askQuestion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - question
+              properties:
+                question:
+                  type: string
+                  description: The user's question about the book content.
+                  example: "What is ROS 2?"
+      responses:
+        '200':
+          description: Successful response with answer and cited sources.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  answer:
+                    type: string
+                    description: The coherent answer to the user's question.
+                    example: "ROS 2 is..."
+                  sources:
+                    type: array
+                    items:
+                      type: string
+                      description: Reference to the original source file.
+                      example: "module1-ros2/ros2-architecture.md"
+        '400':
+          description: Bad Request - Invalid input (e.g., empty question).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal Server Error - API failures (OpenAI/Gemini, Qdrant, Postgres).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Service Unavailable - External language model service rate limit exceeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: A descriptive error message.
+          example: "Empty query provided."

@@ -1,47 +1,38 @@
 ---
-sidebar_position: 1
+id: intro
+title: Introduction to Physical AI & Humanoid Robotics
+slug: /
+sidebar_position: 0
 ---
 
-# Tutorial Intro
+# Welcome to the Physical AI & Humanoid Robotics Textbook
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## Course Overview
+This textbook provides a comprehensive introduction to the exciting and rapidly evolving field of Physical AI and Humanoid Robotics. Over 13 weeks, you will explore foundational concepts, practical applications, and advanced topics, culminating in a capstone project.
 
-## Getting Started
+## Learning Outcomes
+Upon completion of this course, you will be able to:
+- Understand the core principles of physical AI and embodied intelligence.
+- Develop and simulate robot behaviors using ROS 2 and NVIDIA Isaac Sim.
+- Implement advanced control and perception techniques for humanoid robots.
+- Explore the integration of vision-language models for intelligent robotic interaction.
 
-Get started by **creating a new site**.
+## Module Overview
+This course is structured into five main modules, plus foundational concepts and a hardware appendix:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+- **Foundations**: Introduction to Physical AI, Digital-to-Physical Systems, Humanoid Landscape, Sensor Systems.
+- **Module 1: ROS 2 Fundamentals**: Architecture, Nodes/Topics/Services, Packages, Launch Files, URDF.
+- **Module 2: Digital Twin Simulation**: Gazebo, URDF/SDF, Physics, Unity.
+- **Module 3: NVIDIA Isaac Platform**: Isaac Sim, Synthetic Data, Isaac ROS, NAV2.
+- **Module 4: Humanoid Robot Development**: Kinematics/Dynamics, Bipedal Locomotion, Manipulation, Human-Robot Interaction.
+- **Module 5: Vision-Language-Action**: Conversational Robotics, Whisper, LLM Planning, Capstone.
+- **Hardware Requirements**: Workstation, Edge Computing, Robot Lab Options.
 
-### What you'll need
+## Hardware Summary
+This course requires access to specific hardware for practical exercises, including an NVIDIA RTX GPU (4070 Ti or higher), Ubuntu 22.04 LTS, and optionally, a Jetson Orin Developer Kit and RealSense cameras. Information on various robot lab options (e.g., Unitree Go2/G1) is also provided.
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## Assessment Overview
+Your understanding will be assessed through a combination of programming assignments, project milestones, and a final capstone project.
 
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+## Navigation
+Use the sidebar to navigate through the course modules and chapters. Each chapter includes learning objectives, detailed content, code examples, and key takeaways.

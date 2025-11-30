@@ -1,0 +1,28 @@
+/**
+ * Chat Widget Container Styles
+ */
+
+.chatWidget {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 9998;
+  font-family: inherit;
+  pointer-events: none;
+}
+
+/* Allow pointer events on interactive elements */
+.chatWidget button,
+.chatWidget input,
+.chatWidget textarea,
+.chatWidget a {
+  pointer-events: auto;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .chatWidget {
+    bottom: 0;
+    right: 0;
+  }
+}

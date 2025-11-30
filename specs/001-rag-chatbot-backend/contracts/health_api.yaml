@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: RAG Chatbot Backend API
+  version: 1.0.0
+paths:
+  /api/health:
+    get:
+      summary: Check backend service health
+      operationId: checkHealth
+      responses:
+        '200':
+          description: Successful response indicating operational status.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Overall operational status ('ok' or 'degraded').
+                    example: "ok"
+                  qdrant:
+                    type: string
+                    description: Connectivity status of Qdrant ('connected' or 'disconnected').
+                    example: "connected"
+                  postgres:
+                    type: string
+                    description: Connectivity status of Neon Postgres ('connected' or 'disconnected').
+                    example: "connected"
+        '500':
+          description: Internal Server Error - Unexpected server issue.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: A descriptive error message.
+          example: "Internal server error."
