@@ -17,7 +17,7 @@ const config: Config = {
     backendUrl: process.env.REACT_APP_BACKEND_URL || 'https://physical-ai-humanoid-robotics-course-2.onrender.com',
   },
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://physical-ai-humanoid-robotics-cours-rho.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -77,7 +77,7 @@ const config: Config = {
         },
         
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/Tabish764/Physical-AI-Humanoid-Robotics-Course',
           label: 'GitHub',
           position: 'right',
         },
