@@ -14,7 +14,7 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
   customFields: {
-    backendUrl: 'https://physical-ai-humanoid-robotics-course-2.onrender.com',
+    backendUrl: process.env.REACT_APP_BACKEND_URL || 'https://physical-ai-humanoid-robotics-course-2.onrender.com',
   },
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
