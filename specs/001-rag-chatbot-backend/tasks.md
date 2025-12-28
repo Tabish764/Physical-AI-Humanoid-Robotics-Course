@@ -6,22 +6,22 @@ This document outlines the tasks for implementing the RAG Chatbot Backend API, o
 
 These tasks involve the initial project setup and environment configuration.
 
-- [ ] T001 Create `backend/` directory and basic Python project structure
-- [ ] T002 Create `backend/requirements.txt` with initial dependencies (fastapi, uvicorn, qdrant-client, openai, psycopg2-binary, python-dotenv, pydantic, markdown)
-- [ ] T003 Create `backend/.env.example` file based on environment variables in plan.md
-- [ ] T004 Create `backend/.gitignore` to ignore `.env` and `__pycache__`
-- [ ] T005 Create `backend/README.md` with setup instructions from quickstart.md
+- [X] T001 Create `backend/` directory and basic Python project structure
+- [X] T002 Create `backend/requirements.txt` with initial dependencies (fastapi, uvicorn, qdrant-client, openai, psycopg2-binary, python-dotenv, pydantic, markdown)
+- [X] T003 Create `backend/.env.example` file based on environment variables in plan.md
+- [X] T004 Create `backend/.gitignore` to ignore `.env` and `__pycache__`
+- [X] T005 Create `backend/README.md` with setup instructions from quickstart.md
 
 ## Phase 2: Foundational
 
 These tasks establish the core infrastructure and connections required before implementing specific user stories.
 
-- [ ] T006 Initialize FastAPI application in `backend/main.py`
-- [ ] T007 Implement CORS middleware in `backend/main.py` using `FRONTEND_URL` environment variable
-- [ ] T008 Implement basic structured logging configuration in `backend/utils/logger.py`
-- [ ] T009 Create Qdrant client utility and connection function in `backend/services/qdrant.py`
-- [ ] T010 Create Neon Postgres connection utility and define `chat_history` table schema in `backend/services/postgres.py`
-- [ ] T011 Implement OpenAI SDK (Gemini) client utility with retry logic in `backend/services/llm.py`
+- [X] T006 Initialize FastAPI application in `backend/main.py`
+- [X] T007 Implement CORS middleware in `backend/main.py` using `FRONTEND_URL` environment variable
+- [X] T008 Implement basic structured logging configuration in `backend/utils/logger.py`
+- [X] T009 Create Qdrant client utility and connection function in `backend/services/qdrant.py`
+- [X] T010 Create Neon Postgres connection utility and define `chat_history` table schema in `backend/services/postgres.py`
+- [X] T011 Implement OpenAI SDK (Gemini) client utility with retry logic in `backend/services/llm.py`
 
 ## Phase 3: User Story 1 - Ask a Question about Book Content (Priority: P1)
 
@@ -29,9 +29,9 @@ A user wants to ask a question about the content of the Physical AI textbook and
 
 **Independent Test**: A user can ask a question related to the textbook content (e.g., "What is ROS 2?"), and receive a coherent answer that includes relevant sections of the book as sources.
 
-- [ ] T012 [P] [US1] Create `backend/models/content.py` for `ContentSegment` Pydantic model
-- [ ] T013 [P] [US1] Create `backend/models/chat.py` for `ConversationRecord` Pydantic model
-- [ ] T014 [US1] Implement `embed_book.py` script for content processing
+- [X] T012 [P] [US1] Create `backend/models/content.py` for `ContentSegment` Pydantic model
+- [X] T013 [P] [US1] Create `backend/models/chat.py` for `ConversationRecord` Pydantic model
+- [X] T014 [US1] Implement `embed_book.py` script for content processing
     - Read markdown files recursively from `../docs/`
     - Strip frontmatter
     - Segment content into chunks (800-1200 chars, 100 char overlap)
@@ -39,7 +39,7 @@ A user wants to ask a question about the content of the Physical AI textbook and
     - Store in Qdrant collection "physical_ai_book" with metadata via `backend/services/qdrant.py`
     - Handle rate limits with retry logic
     - Log progress
-- [ ] T015 [US1] Implement `POST /api/chat` endpoint in `backend/main.py`
+- [X] T015 [US1] Implement `POST /api/chat` endpoint in `backend/main.py`
     - Receive `question` from request body (validated by Pydantic model)
     - Generate embedding for `question` using `backend/services/llm.py`
     - Query Qdrant for top 3 similar chunks via `backend/services/qdrant.py`
@@ -56,8 +56,8 @@ A user wants to select a portion of text from the Physical AI textbook and ask t
 
 **Independent Test**: A user can select text from the content, request an explanation for it, and receive an answer based directly on the provided text, without external searches.
 
-- [ ] T016 [P] [US2] Update `backend/models/chat.py` for `ChatSelectedRequest` Pydantic model (if needed)
-- [ ] T017 [US2] Implement `POST /api/chat-selected` endpoint in `backend/main.py`
+- [X] T016 [P] [US2] Update `backend/models/chat.py` for `ChatSelectedRequest` Pydantic model (if needed)
+- [X] T017 [US2] Implement `POST /api/chat-selected` endpoint in `backend/main.py`
     - Receive `question` and `selected_text` from request body (validated by Pydantic model)
     - Construct prompt for Gemini based *only* on `selected_text`
     - Send prompt to OpenAI SDK (Gemini `gemini-1.5-flash` model) via `backend/services/llm.py`
@@ -71,8 +71,8 @@ A developer or monitoring system wants to quickly verify the operational status 
 
 **Independent Test**: A user can request a health check and receive a response indicating the connection status of the core data storage and retrieval services, and an overall service status.
 
-- [ ] T018 [P] [US3] Create `backend/models/health.py` for `HealthStatus` Pydantic model
-- [ ] T019 [US3] Implement `GET /api/health` endpoint in `backend/main.py`
+- [X] T018 [P] [US3] Create `backend/models/health.py` for `HealthStatus` Pydantic model
+- [X] T019 [US3] Implement `GET /api/health` endpoint in `backend/main.py`
     - Check Qdrant connectivity via `backend/services/qdrant.py`
     - Check Neon Postgres connectivity via `backend/services/postgres.py`
     - Return `HealthStatus` JSON response with overall `status` and individual service statuses (`qdrant`, `postgres`)
@@ -81,12 +81,12 @@ A developer or monitoring system wants to quickly verify the operational status 
 
 These tasks ensure the overall quality, robustness, and adherence to standards.
 
-- [ ] T020 Implement comprehensive Pydantic models for all API request and response bodies.
-- [ ] T021 Implement standardized error handling for all API endpoints with clear messages and appropriate HTTP status codes (400, 500, 503).
-- [ ] T022 Ensure all environment variables are correctly loaded and used, and no secrets are hardcoded.
-- [ ] T023 Add unit tests for `backend/services/qdrant.py`, `backend/services/postgres.py`, and `backend/services/llm.py`.
-- [ ] T024 Add integration tests for `/api/chat`, `/api/chat-selected`, and `/api/health` endpoints using `pytest` and `httpx`.
-- [ ] T025 Review and add comprehensive type hints to all functions and classes across the `backend/` codebase.
+- [X] T020 Implement comprehensive Pydantic models for all API request and response bodies.
+- [X] T021 Implement standardized error handling for all API endpoints with clear messages and appropriate HTTP status codes (400, 500, 503).
+- [X] T022 Ensure all environment variables are correctly loaded and used, and no secrets are hardcoded.
+- [X] T023 Add unit tests for `backend/services/qdrant.py`, `backend/services/postgres.py`, and `backend/services/llm.py`.
+- [X] T024 Add integration tests for `/api/chat`, `/api/chat-selected`, and `/api/health` endpoints using `pytest` and `httpx`.
+- [X] T025 Review and add comprehensive type hints to all functions and classes across the `backend/` codebase.
 
 ## Dependency Graph (User Story Completion Order)
 
