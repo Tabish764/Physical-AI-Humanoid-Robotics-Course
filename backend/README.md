@@ -70,6 +70,32 @@ Before running the API, you need to embed the book content into the Qdrant vecto
 *   **POST /api/chat-selected**: Get an explanation for selected text.
 *   **GET /api/health**: Check the health status of the API and its dependencies.
 
+## Logging
+
+The backend includes a structured logging system that:
+
+*   Logs to both console and file (when `logs/` directory exists)
+*   Supports multiple log levels (INFO, ERROR, WARNING, DEBUG)
+*   Uses consistent formatting: `YYYY-MM-DD HH:MM:SS - logger_name - LEVEL - filename:line_number - message`
+*   Safely handles missing log directories without crashing the application
+*   Prevents duplicate log handlers when modules are imported multiple times
+
+### Usage
+
+The logging system can be used throughout the application:
+
+```python
+from utils.logger import setup_logger, log_info, log_error, log_warning, log_debug
+
+# Use the default logger
+log_info("Application started successfully")
+log_error("An error occurred", extra={"user_id": 123})
+
+# Or create a custom logger
+custom_logger = setup_logger("my_module")
+custom_logger.warning("Warning message")
+```
+
 ## Testing (Optional)
 
 Run the tests using `pytest`:
